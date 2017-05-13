@@ -1,19 +1,19 @@
-package work;
+package appraisers;
 
 import com.google.common.base.Strings;
 
 import lombok.Getter;
 
 /**
- * Describes a chunk of work for service to process.
+ * Describes appraised chunk of work for service to process.
  */
-public class Work {
+public class AppraisedWork {
 
 	@Getter private final long fromTimestamp;
 	@Getter private final long toTimestamp;
 	@Getter private final String searchTerm;
 
-	public Work(final long fromTimestamp, final long toTimestamp, final String searchTerm) {
+	public AppraisedWork(final long fromTimestamp, final long toTimestamp, final String searchTerm) {
 		if (fromTimestamp >= toTimestamp) {
 			throw new IllegalArgumentException("fromTimestamp must be strictly less then toTimestamp.");
 		}
