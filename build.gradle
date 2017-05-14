@@ -4,6 +4,10 @@ apply plugin: 'java'
 apply plugin: 'jdepend'
 apply plugin: 'pmd'
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
+
 repositories {
     jcenter()
 }
