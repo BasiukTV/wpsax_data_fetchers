@@ -10,7 +10,7 @@ public class AppraisedWorkTest {
 
   /** Tests regular constructor. */
   @Test
-  public void testConstructor() {
+  public void testAppraisedWorkConstructor() {
     final AppraisedWork testWork = new AppraisedWork(0L, Long.MAX_VALUE, "test");
     Assert.assertEquals(testWork.getFromTimestamp(), 0L);
     Assert.assertEquals(testWork.getToTimestamp(), Long.MAX_VALUE);
@@ -19,28 +19,28 @@ public class AppraisedWorkTest {
 
   /** Tests passing various illegal arguments to the constructor. */
   @Test
-  public void testIllegalArguments() throws Exception {
+  public void testAppraisedWorkConstructorIllegalArguments() throws Exception {
     // Tests fromTimestamp that is larger then toTimestamp
     try {
       new AppraisedWork(100L, 10L, "test");
-      throw new Exception("Should've failed by now.");
-    } catch (final IllegalArgumentException e) {
+      Assert.fail("Should've failed by now.");
+    } catch (final IllegalArgumentException e) { // NOPMD
       // All is good.
     }
 
     // Tests null searchTerm
     try {
       new AppraisedWork(10L, 100L, null);
-      throw new Exception("Should've failed by now.");
-    } catch (final IllegalArgumentException e) {
+      Assert.fail("Should've failed by now.");
+    } catch (final IllegalArgumentException e) { // NOPMD
       // All is good.
     }
 
     // Tests empty searchTerm
     try {
       new AppraisedWork(10L, 100L, "");
-      throw new Exception("Should've failed by now.");
-    } catch (final IllegalArgumentException e) {
+      Assert.fail("Should've failed by now.");
+    } catch (final IllegalArgumentException e) { // NOPMD
       // All is good.
     }
   }
