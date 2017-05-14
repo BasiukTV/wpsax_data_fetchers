@@ -2,6 +2,6 @@ package appraisers;
 
 public abstract class WorkAppraiser {
 
-	public abstract AppraisedWork discoverWork();
+  public abstract AppraisedWork discoverWork();
 
 }

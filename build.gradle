@@ -1,3 +1,4 @@
+apply plugin: 'checkstyle'
 apply plugin: 'java'
 
 repositories {
@@ -15,3 +16,7 @@ dependencies {
 }
 
 test.useTestNG()
+
+checkstyle {
+    toolVersion ="7.7"
+}

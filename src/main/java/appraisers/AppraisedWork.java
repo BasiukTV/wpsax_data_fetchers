@@ -9,22 +9,29 @@ import lombok.Getter;
  */
 public class AppraisedWork {
 
-	@Getter private final long fromTimestamp;
-	@Getter private final long toTimestamp;
-	@Getter private final String searchTerm;
+  @Getter private final long fromTimestamp;
+  @Getter private final long toTimestamp;
+  @Getter private final String searchTerm;
 
-	public AppraisedWork(final long fromTimestamp, final long toTimestamp, final String searchTerm) {
-		if (fromTimestamp >= toTimestamp) {
-			throw new IllegalArgumentException("fromTimestamp must be strictly less then toTimestamp.");
-		}
+  /**
+   * Constructs AppraisedWork via search term and from and to timestamp.
+   *
+   * @param fromTimestamp From timestamp range bound.
+   * @param toTimestamp To timestamp range bound.
+   * @param searchTerm Term to search for.
+   */
+  public AppraisedWork(final long fromTimestamp, final long toTimestamp, final String searchTerm) {
+    if (fromTimestamp >= toTimestamp) {
+      throw new IllegalArgumentException("fromTimestamp must be strictly less then toTimestamp.");
+    }
 
-		if (Strings.isNullOrEmpty(searchTerm)) {
-			throw new IllegalArgumentException("searchTerm must not be null or empty.");
-		}
+    if (Strings.isNullOrEmpty(searchTerm)) {
+      throw new IllegalArgumentException("searchTerm must not be null or empty.");
+    }
 
-		this.fromTimestamp = fromTimestamp;
-		this.toTimestamp = toTimestamp;
-		this.searchTerm = searchTerm;
-	}
+    this.fromTimestamp = fromTimestamp;
+    this.toTimestamp = toTimestamp;
+    this.searchTerm = searchTerm;
+  }
 
 }
