@@ -1,6 +1,7 @@
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'java'
+apply plugin: 'jdepend'
 
 repositories {
     jcenter()
@@ -26,4 +27,8 @@ findbugs {
     effort = "max"
     ignoreFailures = false
     reportLevel = "low"
+}
+
+jdepend {
+    ignoreFailures = false
 }
