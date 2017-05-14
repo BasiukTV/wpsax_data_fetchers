@@ -4,6 +4,7 @@ build/
 gradle-app.setting
 .project
 .settings/
+test-output/
 
 *.class
 

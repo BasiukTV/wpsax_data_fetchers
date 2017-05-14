@@ -1,5 +1,6 @@
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
+apply plugin: "jacoco"
 apply plugin: 'java'
 apply plugin: 'jdepend'
 apply plugin: 'pmd'
@@ -33,6 +34,39 @@ findbugs {
     ignoreFailures = false
     reportLevel = "low"
 }
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/jacoco"
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        failOnViolation = true
+        rule {
+            limit {
+                // TODO Increase to 0.8
+                minimum = 0.6
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
 
 jdepend {
     ignoreFailures = false
